@@ -1,3 +1,11 @@
-To use it, go in computer list, check the computers and in massive action, you have 2 possibilities : 
-1/ print a bar code
-2/ print a QRcode
+Plugin Relation for GLPI 0.85x 
+-------------------------------
+Requisitos.
+- Libreria Graphviz instalada.
+
+Descripción
+- Registro de clases que participan en la relaciones.
+- Clasificacion de la relacion por tipo.
+- Tag o pestaña en los objetos que tienen relaciones.
+- Representación tabular para la relaciones de objetos.
+- Representación Grafica (diagrama de relaciones).
