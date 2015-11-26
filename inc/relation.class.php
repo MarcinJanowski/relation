@@ -263,15 +263,20 @@ class PluginRelationRelation extends CommonDBTM{
 		$thisdata = $DB->fetch_array($result4);
 
 		echo "<tr><th colspan='".$numcols."'>".__('Elementos relacionados','Elementos relacionados')."</th></tr>";
-		echo "<tr><th>".__('Nombre','Nombre')."</th>";
+		// CRI 26/11/2015 Cambio de orden de columna tipo de relacion
+		echo "<tr>";
+		
+		if($showgroup)
+			echo "<th>".__('Tipo Relacion','Tipo Relacion')."</th>";
+		
+		echo "<th>".__('Nombre','Nombre')."</th>";
 		
 		echo "<th>".__('Estado','Estado')."</th>"; // CRI 2.0 Añadir Estado del CI 11/12/2014
 		
 		if ($display_entity)
 			echo "<th>".__('Entidad','Entidad')."</th>";
 		echo "<th>".__('Tipo','Tipo')."</th>";
-		if($showgroup)
-			echo "<th>".__('Tipo Relacion','Tipo Relacion')."</th>";
+
 		if(Session::haveRight("plugin_relation", CREATE))
 			echo "<th>&nbsp;</th>";
 		echo "</tr>";
@@ -293,6 +298,11 @@ class PluginRelationRelation extends CommonDBTM{
 				
 			
 				echo '<tr class="tab_bg_1">';
+				
+				// CRI 2.0 Cambio de orden de columna tipo de relacion
+				if($showgroup){
+					echo '<td align="center">'.$data['name'].'</td>';
+				}
 				
 				if ($data['itemtype']=="User"){
 				$user = getUserName($data['items_id'],2);
@@ -319,9 +329,7 @@ class PluginRelationRelation extends CommonDBTM{
 						//echo "<td align='center'>".$objAsociado->fields['entities_id']."</td>";
 				}
 				echo '<td align="center">'.PluginRelationRelation::getViewNameClass($data['itemtype']).'</td>'; // Gobierno TI: [olb26s] uso de funcion getViewNameClass
-				if($showgroup){
-					echo '<td align="center">'.$data['name'].'</td>';
-				}
+
 				if(Session::haveRight('plugin_relation',CREATE))
 					if ($withtemplate<2)
 						echo "<td align='center' class='tab_bg_2'><a href='".$CFG_GLPI["root_doc"]."/plugins/relation/front/relation.form.php?deleterelation=deleterelation&amp;id=".$data['id']."'>".__('Eliminar','Eliminar')."</a></td>";
@@ -344,6 +352,12 @@ class PluginRelationRelation extends CommonDBTM{
 				$objAsociado->getFromDB($data['parent_id']);
 
 				echo '<tr class="tab_bg_1">';
+				
+				// CRI 2.0 26/11/2015 Cambio de orden de columna tipo de relacion
+				if($showgroup) {
+					echo '<td align="center">'.$data['invname'].'</td>';
+				}
+				
 				if ($data['parent_type']=="User"){
 				$user = getUserName($data['parent_id'],2);
 				echo '<td align="center"><a href="'.$form.'?id='.$data['parent_id'].'">'.getUserName($data['parent_id']).' ('.$objAsociado->fields['name'].")&nbsp;".Html::showToolTip($user["comment"],
@@ -367,9 +381,7 @@ class PluginRelationRelation extends CommonDBTM{
 						echo "<td align='center'>".Dropdown::getDropdownName("glpi_entities", $objAsociado->fields['entities_id'])."</td>";
 				}
 				echo '<td align="center">'.PluginRelationRelation::getViewNameClass($data['parent_type']).'</td>'; // Gobierno TI: [olb26s] uso de funcion getViewNameClass
-				if($showgroup) {
-					echo '<td align="center">'.$data['invname'].'</td>';
-				}
+
 				if(Session::haveRight('plugin_relation',CREATE))
 					if ($withtemplate<2)
 						echo "<td align='center' class='tab_bg_2'><a href='".$CFG_GLPI["root_doc"]."/plugins/relation/front/relation.form.php?deleterelation=deleterelation&amp;id=".$data['id']."'>".__('Eliminar','Eliminar')."</a></td>";
@@ -933,7 +945,7 @@ class PluginRelationRelation extends CommonDBTM{
 	public static function getParentsItem($itemtype,$id){
 		global $DB;
 
-		$query = "select p.parent_id, p.parent_type, p.relation_type, t.invname
+		$query = "select p.parent_id, p.parent_type, p.relation_type, t.name 
 		from glpi_plugin_relation_relations p, glpi_plugin_relation_typerelations t 
 		where p.items_id=$id and p.itemtype='$itemtype' and p.relation_type = t.id
 		and p.parent_type not in (select name from glpi_plugin_relation_clases where is_visible=0)";  //CRI2.0 Modificado olb26s
