@@ -134,8 +134,8 @@ function plugin_version_relation() {
 function plugin_relation_check_prerequisites() {
    
 
-   if (version_compare(GLPI_VERSION,'0.85','lt') || version_compare(GLPI_VERSION,'0.86','ge')) {
-      echo __('GLPI version not compatible need 0.85.x', 'relation');
+   if (version_compare(GLPI_VERSION,'0.85','lt') || version_compare(GLPI_VERSION,'0.91','ge')) {
+      echo __('GLPI version not compatible need 0.90.x', 'relation');
       return false;
    }
    return true;
