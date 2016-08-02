@@ -57,7 +57,7 @@ class PluginRelationRelationclase extends CommonDBTM {
          '1' => array(
             'table'         => $this->getTable(),
             'field'         => 'classname',
-            'name'          => __('Nombre de la clase','Nombre de la clase'),
+            'name'          => __('Class name','Nombre de la clase'),
 			'datatype'      => 'itemlink',
             'massiveaction' => true,
          ),
@@ -71,7 +71,7 @@ class PluginRelationRelationclase extends CommonDBTM {
          '3' => array(
             'table'         => $this->getTable(),
             'field'         => 'classlist',
-            'name'          => __('Clase con la que se relaciona','Clase con la que se relaciona'),
+            'name'          => __('Class that relates','Clase con la que se relaciona'),
             'datatype'      => 'text',
             'massiveaction' => true,
          ),
@@ -109,18 +109,18 @@ class PluginRelationRelationclase extends CommonDBTM {
          
       echo "<tr class='tab_bg_1'>";
       //Nombre de la clase
-      echo "<td>".__('Nombre de la clase','Nombre de la clase').": </td><td>";
+      echo "<td>".__('Class name','Nombre de la clase').": </td><td>";
 	  $relation->dropdownClase("classname",$this->fields["classname"]);
       echo "</td>";
       //Clase con las que se relaciona
-      echo "<td>".__('Clase con la que se relaciona','Clase con la que se relaciona').": </td>";
+      echo "<td>".__('Class that relates','Clase con la que se relaciona').": </td>";
       echo "<td>";
 	   $relation->dropdownClase("classlist",$this->fields["classlist"]);
       echo "</td>";
       echo "</tr>";
       echo "<tr class='tab_bg_1'>";
       //Descripción
-      echo "<td>".__('Descripción','Descripción').": </td><td>";
+      echo "<td>".__('Description','Descripción').": </td><td>";
 	  Html::autocompletionTextField($this,"comment",array('size' => "15"));
       echo "</td>";
       echo "</tr>";

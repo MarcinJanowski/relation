@@ -130,7 +130,7 @@ function plugin_relation_getAddSearchOptions($itemtype){
 			$sopt[2250]['field'] = '';
 			$sopt[2250]['linkfield'] = 'parent';
             $sopt[2250]['name']           = PluginRelationRelation::getTypeName(2)." - ".
-                                         __('Inversa');
+                                         __('Parent');
 			$sopt[2250]['datatype']	= 'itemlink';
 			//$sopt[2250]['datatype']	= 'dropdown';
 			$sopt[2250]['itemlink_type'] = $itemtype;
@@ -142,7 +142,7 @@ function plugin_relation_getAddSearchOptions($itemtype){
 			$sopt[2251]['field'] = '';
 			$sopt[2251]['linkfield'] = 'children';
             $sopt[2251]['name']           = PluginRelationRelation::getTypeName(2)." - ".
-                                         __('Directa');
+                                         __('Children');
 			$sopt[2251]['forcegroupby'] = true;
 			//$sopt[2251]['datatype'] = 'dropdown';
 			$sopt[2251]['datatype'] = 'itemlink';
@@ -368,10 +368,10 @@ function plugin_relation_giveItem($type,$ID,$data,$num) {
 						$string .= $form . "?id=" . $item[1] . "'>";
 						switch($ID) {
 							case 2250:
-								$string .= $nombre_objeto. "</a>". " Clase: ". $item[0] . " Tipo Relacion: ". PluginRelationRelation::getNombreTiporelacion($item[2], 1)  ;
+								$string .= $nombre_objeto. "</a>". " Class: ". $item[0] . " Relation type: ". PluginRelationRelation::getNombreTiporelacion($item[2], 1)  ;
 							    break;
 							case 2251: 
-								$string .= $nombre_objeto. "</a>". " Clase: ". $item[0] . " Tipo Relacion: ". PluginRelationRelation::getNombreTiporelacion($item[2], 0)  ;
+								$string .= $nombre_objeto. "</a>". " Class: ". $item[0] . " Relation type: ". PluginRelationRelation::getNombreTiporelacion($item[2], 0)  ;
 							    break;
 						}				
 						

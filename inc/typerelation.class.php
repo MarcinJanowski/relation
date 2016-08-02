@@ -48,7 +48,7 @@ class PluginRelationTyperelation extends CommonDBTM {
    static $rightname = 'config';
 
    public static function getTypeName($nb=0) {
-      return __('Tipo relacion', 'relation');
+      return __('Relation type', 'relation');
    }
 
    
@@ -58,7 +58,7 @@ class PluginRelationTyperelation extends CommonDBTM {
          '1' => array(
             'table'         => $this->getTable(),
             'field'         => 'name',
-            'name'          => __('Nombre de la relación','Nombre de la relación'),
+            'name'          => __('Name','Nombre de la relación'),
 			'datatype'      => 'itemlink',
             'massiveaction' => true,
          ),
@@ -72,7 +72,7 @@ class PluginRelationTyperelation extends CommonDBTM {
          '3' => array(
             'table'         => $this->getTable(),
             'field'         => 'invname',
-            'name'          => __('Nombre de la relación (sentido inverso)','Nombre de la relación (sentido inverso)'),
+            'name'          => __('Reverse name','Nombre de la relación (sentido inverso)'),
             'datatype'      => 'text',
             'massiveaction' => true,
          ),
@@ -109,18 +109,18 @@ class PluginRelationTyperelation extends CommonDBTM {
       
       echo "<tr class='tab_bg_1'>";
       //Nombre de la relación
-      echo "<td>".__('Nombre de la relación','Nombre de la relación').": </td><td>";
+      echo "<td>".__('Name','Nombre de la relación').": </td><td>";
 	  Html::autocompletionTextField($this,"name",array('size' => "15"));
       echo "</td>";
       //Nombre de la relación en sentido inverso
-      echo "<td>".__('Nombre de la relación (sentido inverso)','Nombre de la relación (sentido inverso)').": </td>";
+      echo "<td>".__('Reverse name','Nombre de la relación (sentido inverso)').": </td>";
       echo "<td>";
       Html::autocompletionTextField($this,"invname",array('size' => "15"));
       echo "</td>";
       echo "</tr>";
       echo "<tr class='tab_bg_1'>";
       //Descripción
-      echo "<td>".__('Descripción','Descripción').": </td><td>";
+      echo "<td>".__('Description','Descripción').": </td><td>";
 	  Html::autocompletionTextField($this,"comment",array('size' => "15"));
       echo "</td>";
       echo "</tr>";
