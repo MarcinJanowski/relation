@@ -58,17 +58,17 @@ class PluginRelationConfig extends CommonGLPI {
       $menu['title'] = self::getTypeName();
 
       $menu['options']['typerelation']['page']                      = "/plugins/relation/front/typerelation.php";
-      $menu['options']['typerelation']['title']                     = __("Tipos relaciones", 'relation');
+      $menu['options']['typerelation']['title']                     = __("Relation types", 'relation');
       $menu['options']['typerelation']['links']['add']              = '/plugins/relation/front/typerelation.form.php';
          $menu['options']['typerelation']['links']['search']        = '/plugins/relation/front/typerelation.php';
 
       $menu['options']['clase']['page']               = "/plugins/relation/front/clase.php";
-      $menu['options']['clase']['title']              = __("Clases", 'relation');
+      $menu['options']['clase']['title']              = __("Classes", 'relation');
       $menu['options']['clase']['links']['add']       = '/plugins/relation/front/clase.form.php';
          $menu['options']['clase']['links']['search'] = '/plugins/relation/front/clase.php';
 
       $menu['options']['relationclase']['page']                    = "/plugins/relation/front/relationclase.php";
-      $menu['options']['relationclase']['title']                   = __("Relaciones clase", 'relation');
+      $menu['options']['relationclase']['title']                   = __("Relations classes", 'relation');
       $menu['options']['relationclase']['links']['add']       = '/plugins/relation/front/relationclase.form.php';
          $menu['options']['relationclase']['links']['search'] = '/plugins/relation/front/relationclase.php';	  
 
@@ -83,19 +83,19 @@ class PluginRelationConfig extends CommonGLPI {
 		
 		echo "<div class='center'>";
 		echo "<table class='tab_cadre'>";
-		echo "<tr><th>".__('Configuración plugin Relaciones','Configuración plugin Relaciones')."</th></tr>";
+		echo "<tr><th>".__('Configuration Relations plugin','Configuración plugin Relaciones')."</th></tr>";
 
 		if (Session::haveRight('plugin_relation',CREATE)) {
 		   echo "<tr class='tab_bg_1 center'><td>";
-		   echo "<a href='".$CFG_GLPI['root_doc']."/plugins/relation/front/typerelation.php' >".__('Ver o modificar tipos de relaciones','Ver o modificar tipos de relaciones')."</a>";
+		   echo "<a href='".$CFG_GLPI['root_doc']."/plugins/relation/front/typerelation.php' >".__('View or modify types of relationships','Ver o modificar tipos de relaciones')."</a>";
 		   echo "</td/></tr>\n";
 		 
 		   echo "<tr class='tab_bg_1 center'><td>";
-		   echo "<a href='".$CFG_GLPI['root_doc']."/plugins/relation/front/clase.php' >".__('Ver o modificar clase que participan en las relaciones','Ver o modificar clase que participan en las relaciones')."</a>";
+		   echo "<a href='".$CFG_GLPI['root_doc']."/plugins/relation/front/clase.php' >".__('View or modify class involved in relationships','Ver o modificar clase que participan en las relaciones')."</a>";
 		   echo "</td/></tr>\n";
 
 		   echo "<tr class='tab_bg_1 center'><td>";
-		   echo "<a href='".$CFG_GLPI['root_doc']."/plugins/relation/front/relationclase.php' >".__('Ver o modificar relaciones entre clase','Ver o modificar relaciones entre clase')."</a>";
+		   echo "<a href='".$CFG_GLPI['root_doc']."/plugins/relation/front/relationclase.php' >".__('View or modify relationships between class','Ver o modificar relaciones entre clase')."</a>";
 		   echo "</td/></tr>\n";
 
 		}

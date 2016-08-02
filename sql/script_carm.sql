@@ -59,8 +59,8 @@ CREATE TABLE IF NOT EXISTS `glpi_plugin_relation_clases` (
 
 TRUNCATE TABLE `glpi_plugin_relation_typerelations`;
 INSERT INTO `glpi_plugin_relation_typerelations` (`id`,`entities_id`,`is_recursive`,`name`,`invname`,`comment`) 
-	VALUES 	(1,0,0,'Es parte de','Es parte de (inverso)','Es parte de'),
-			(2,0,0,'Vinculado con','Vinculado con (inverso)','Vinculado con'),
-			(3,0,0,'Utiliza','Utilizado por','Utiliza'),
-			(4,0,0,'Es padre de','Es hijo de','padre-hijo');
+	VALUES 	(1,0,0,'It is part of','It is part of (reverse)','It is part of'),
+			(2,0,0,'Linked with','Linked with (reverse)','Linked with'),
+			(3,0,0,'Use','Used by','Use'),
+			(4,0,0,'He is the father of','Is son of','Father son');
 

@@ -56,7 +56,7 @@ class PluginRelationClase extends CommonDBTM {
          '1' => array(
             'table'         => $this->getTable(),
             'field'         => 'name',
-            'name'          => __('Nombre de la clase','Nombre de la clase'),
+            'name'          => __('Class name','Nombre de la clase'),
 			'datatype'      => 'itemlink',
             'massiveaction' => true,
          ),
@@ -70,7 +70,7 @@ class PluginRelationClase extends CommonDBTM {
          '3' => array(
             'table'         => $this->getTable(),
             'field'         => 'viewname',
-            'name'          => __('Nombre a mostrar para la clase','Nombre a mostrar para la clase'),
+            'name'          => __('Display name for the class','Nombre a mostrar para la clase'),
             'datatype'      => 'text',
             'massiveaction' => true,
          ),
@@ -84,14 +84,14 @@ class PluginRelationClase extends CommonDBTM {
          '5' => array(
             'table'         => $this->getTable(),
             'field'         => 'img',
-            'name'          => __('Imagen','Imagen'),
+            'name'          => __('Image','Imagen'),
             'datatype'      => 'text',			
             'massiveaction' => false,
          ),	
          '6' => array(
             'table'         => $this->getTable(),
             'field'         => 'is_visible',
-            'name'          => __('Es visible','Es visible'),
+            'name'          => __('Is visible','Es visible'),
 			'datatype'      => 'bool',
             'massiveaction' => false,
          ),		 
@@ -123,23 +123,23 @@ class PluginRelationClase extends CommonDBTM {
       $relation = new PluginRelationRelation();
       echo "<tr class='tab_bg_1'>";
       //Nombre de la clase en GLPI
-      echo "<td>".__('Nombre de la clase','Nombre de la clase').": </td><td>";
+      echo "<td>".__('Class name','Nombre de la clase').": </td><td>";
 	  //Html::autocompletionTextField($this,"name",array('size' => "15"));
 	  $relation->dropdownType("name", $relation->getIdDropdown($this->fields["name"]));
       echo "</td>";
       //Nombre a mostrar en los desplegables para la clase
-      echo "<td>".__('Nombre a mostrar para la clase','Nombre a mostrar para la clase').": </td>";
+      echo "<td>".__('Display name for the class','Nombre a mostrar para la clase').": </td>";
       echo "<td>";
       Html::autocompletionTextField($this,"viewname",array('size' => "15"));
       echo "</td>";
       echo "</tr>";
       echo "<tr class='tab_bg_1'>";
       //Descripción
-      echo "<td>".__('Descripción','Descripción').": </td><td>";
+      echo "<td>".__('Description','Descripción').": </td><td>";
 	  Html::autocompletionTextField($this,"comment",array('size' => "15"));
       echo "</td>";
       //Imagen
-      echo "<td>".__('Imagen','Imagen').": </td>";
+      echo "<td>".__('Image','Imagen').": </td>";
       echo "<td>";
       //file
       //$rep = "../plugins/relation/pics/";
@@ -172,7 +172,7 @@ class PluginRelationClase extends CommonDBTM {
 	  
       echo "<tr class='tab_bg_1'>";
       //Nombre de la clase en GLPI
-      echo "<td>".__('Es visible','Es visible')."</td><td>";
+      echo "<td>".__('Is visible','Es visible')."</td><td>";
 	  //Html::autocompletionTextField($this,"name",array('size' => "15"));
 	  Dropdown::showYesNo('is_visible', $this->fields['is_visible']);
       echo "</td>";

@@ -82,21 +82,21 @@ function plugin_init_relation() {
    }
 
    $PLUGIN_HOOKS['submenu_entry']['relation']['options']['typerelation'] = array(
-      'title' => __('Tipos relaciones', 'relation'),
+      'title' => __('Relations types', 'relation'),
       'page'  =>'/plugins/relation/front/typerelation.php',
       'links' => array(
          'search' => '/plugins/relation/front/typerelation.php',
          'add'    =>'/plugins/relation/front/typerelation.form.php'
    ));
    $PLUGIN_HOOKS['submenu_entry']['relation']['options']['clase'] = array(
-      'title' => __('Clases', 'relation'),
+      'title' => __('Relations class', 'relation'),
       'page'  =>'/plugins/relation/front/clase.php',
       'links' => array(
          'search' => '/plugins/relation/front/clase.php',
          'add'    =>'/plugins/relation/front/clase.form.php'
    ));
    $PLUGIN_HOOKS['submenu_entry']['relation']['options']['relationclase'] = array(
-      'title' => __('Relaciones clase', 'relation'),
+      'title' => __('Relations class', 'relation'),
       'page'  =>'/plugins/relation/front/relationclase.form.php',
       'links' => array(
          'search' => '/plugins/relation/front/relationclase.php',
